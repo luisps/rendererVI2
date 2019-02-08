@@ -1,0 +1,14 @@
+*~
+*#
+.vscode
+bin
+*.user*
+build*
+*.sw?
+.ycm_extra_conf.pyc
+*.autosave
+*.gz
+*.rpm
+*.zip
+*.bak
+*.patch

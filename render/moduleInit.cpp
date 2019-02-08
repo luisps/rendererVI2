@@ -53,7 +53,7 @@ namespace ospray {
       std::cout << "#osp: initializing the 'rendererVI2' module" << std::endl;
       /* nothing to do, actually - this is only an example */
     }
-	ds
+
   //} // ::ospray::bilinearPatch
 } // ::ospray
 

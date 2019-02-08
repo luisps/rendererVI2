@@ -20,13 +20,13 @@
   . */
 
 // ospcomon: vec3f, box3f, etcpp - generic helper stuff
-#include "ospcommon/vec.h"
-#include "ospcommon/box.h"
+#include <ospcommon/vec.h>
+#include <ospcommon/box.h>
 // ospray: everything that's related to the ospray ray tracing core
-#include "ospray/render/Renderer.h"
+#include <render/Renderer.h>
 
-#include "../common/Model.h"
-#include "../fb/FrameBuffer.h"
+#include <common/Model.h>
+#include <fb/FrameBuffer.h>
 
 /*! _everything_ in the ospray core universe should _always_ be in the
   'ospray' namespace. */
@@ -43,7 +43,7 @@ namespace ospray {
 
 	struct RendererVI2 : public Renderer
 	{
-		RendererVI2::RendererVI2() {}
+		RendererVI2() = default;
 
 		virtual void commit() override;
 
