@@ -15,6 +15,7 @@
 // ======================================================================== //
 
 /*! \file ospray/moduleInit \brief Defines the module initialization callback */
+#include "render\rendererVI2.h"
 #include <iostream>
 
 /*! _everything_ in the ospray core universe should _always_ be in the
@@ -48,12 +49,11 @@ namespace ospray {
         name of the module and shared library containing this module
         (see comments regarding library name in CMakeLists.txt)
     */
-    extern "C" void ospray_init_module_rendererVI2()
+    extern "C" OSPRAY_DLLEXPORT void ospray_init_module_rendererVI2()
     {
       std::cout << "#osp: initializing the 'rendererVI2' module" << std::endl;
       /* nothing to do, actually - this is only an example */
     }
-
-  //} // ::ospray::bilinearPatch
+  //} // ::ospray::rendererVI2
 } // ::ospray
 

@@ -33,26 +33,28 @@
 # linkage) initializatoin routine named void ospray_init_module_<moduleName>()
 #
 
-option(BUILD_MODULE_RENDERERV12 "Build renderv12 module" ON)
+#include_directories_ispc(${CMAKE_CURRENT_BINARY_DIR})
 
-if(BUILD_MODULE_RENDERERV12)
-  include_directories_ispc(${CMAKE_CURRENT_BINARY_DIR})
-
-  ospray_create_library(ospray_module_rendererVI2
+ospray_create_library(ospray_module_rendererVI2
                         # the module init code (not doing much, but must be
                         # there)
                         moduleInit.cpp
+
                         # the cpp file that contains all the plugin code -
                         # parsing
                         # parameters in ospCommit(), creating and registering
                         # the
                         # object, etc
                         render/rendererVI2.cpp
+
                         # the ispc file that contains the plugins for all vector
                         # code -
                         # render/rendererVI2.ispc
-                        LINK ${OSPRAY_LIBRARIES})
+
+                        LINK 
+                        ospray_module_ispc
+                        #${OSPRAY_LIBRARIES}
+                      )
 
   target_include_directories(ospray_module_rendererVI2
                              PRIVATE ${OSPRAY_INCLUDE_DIRS})
-endif()

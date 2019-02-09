@@ -1,24 +1,18 @@
 
-project(bridge_wall)
-cmake_minimum_required(VERSION 3.1)
+# Define an option to enable/disable this module.
+#
+# Though not actually required we guard each module 'moduleName' with
+# a OSPRAY_MODULE_MODULENAME flag that enables/disables its building.
+#
+OPTION(OSPRAY_MODULE_RENDERER_VI2 "Build rendererVI2" ON)
+IF (OSPRAY_MODULE_RENDERER_VI2)
 
-include(cmake/macros.cmake)
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-
-set(CMAKE_CXX_STANDARD 14)
-
-## Find dependencies ##
-
-find_package(ospray REQUIRED)
-include(${OSPRAY_USE_FILE})
-
-## Build devices ##
-
-add_subdirectory(render)
+  # build the actual module
+  #
+  # This subdirectory will eventually build the
+  # libospray_module_<moduleName>.so library 
+  #
+  ADD_SUBDIRECTORY(render)
 
 
-## Build apps ##
-# add_subdirectory(apps)
+ENDIF (OSPRAY_MODULE_RENDERER_VI2)
